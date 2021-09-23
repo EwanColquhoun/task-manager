@@ -27,6 +27,7 @@
                 <div class="modal-content">
                     <h4>Confirmation</h4>
                     <p>Are you sure you want to delete {{ category.name }}?</p>
+                    <strong class="red-text">This will delete all associated tasks</strong>
                 </div>
                 <div class="modal-footer">
                     <a href="{{ url_for('delete_category', category_id=category.id) }}" class="modal-close red white-text waves-effect waves-light btn-small">Delete</a>

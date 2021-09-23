@@ -26,8 +26,19 @@
             <p>{{ task.task_description }}</p>
             <p>
                 <a href="{{ url_for('edit_task', task_id=task.id) }}" class="btn teal lighten-1">Edit</a>
-                <a href="{{ url_for('delete_task', task_id=task.id) }}" class="btn red lighten-1 modal-trigger">Delete</a>
+                <a href="#modal-{{ task.id }}" class="btn red lighten-1 modal-trigger">Delete</a>
             </p>
+        </div>
+        <!-- modal -->
+        <div id="modal-{{ task.id }}" class="modal">
+            <div class="modal-content">
+                <h4>Confirmation</h4>
+                <p>Are you sure you want to delete {{ task_name }}?</p>
+            </div>
+            <div class="modal-footer">
+                <a href="{{ url_for('delete_task', task_id=task.id) }}" class="modal-close red white-text waves-effect waves-light btn-small">Delete</a>
+                <a href="{{ url_for('home') }}" class="modal-close waves-effect grey white-text waves-green btn-small">Return</a>
+            </div>
         </div>
     </li>
     {% endfor %}
